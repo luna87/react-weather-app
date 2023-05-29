@@ -26,29 +26,30 @@
   margin: 0;
   padding: 0;
 }
-.Weather .temperature {
+.Weather .temp {
   font-weight: bold;
   color: rgb(33, 33, 33);
-  font-size: 50px;
+  font-size: 35px;
   line-height: 64px;
   font-weight: 400px;
   position: fixed;
-  margin-left: 2px;
-  margin-top: 20px;
+  margin-left: 50px;
+  margin-top: -65px;
 }
 .Weather canvas {
   height: 70px;
-  margin: 10px auto;
-  width: 60px;
-  margin-right: 10px;
+  margin-top: 20px ;
+  width: 65px;
+  margin-right: 25px;
   display: inline-block;
+  margin-left: -10px;
 }
 .Weather .unit {
   font-size: 20px;
   font-weight: 400;
   position:relative;
-  top: -45px;
-  margin-left: 60px;
+  top: -50px;
+  margin-left: 100px;
   line-height: 1;
-  margin-top: 30px;
+  margin-top: 40px;
 }
