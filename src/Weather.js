@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+
 import axios from "axios";
 import "./Weather.css";
 export default function Weather(props) {
@@ -9,20 +10,24 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      temp: Math.round(response.data.temperature.current),
-      humidity: response.data.temperature.humidity,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png",
+      humidity: response.data.main.humidity,
+      temp:Math.round( response.data.main.temp),
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
-      city: response.data.city,
+      city: response.data.name,
     });
+    
   }
   function search() {
-    const apiKey = "e30f73b3544toc0d6faf9afc4179ef7e";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=metric`;
+    const apiKey = "2030de72409530d629eb62abf6b08948";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; ;
     axios.get(apiUrl).then(handleResponse);
+    
   }
+  
+   
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -31,6 +36,7 @@ export default function Weather(props) {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
+  
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -63,4 +69,5 @@ export default function Weather(props) {
     search();
     return "loading..";
   }
+  
 }
