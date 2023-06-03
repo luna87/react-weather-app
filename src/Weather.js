@@ -22,11 +22,11 @@ export default function Weather(props) {
       time: new Date(response.data.time),
       //description: response.data.weather[0].description,
       description: response.data.condition.description,
-      //icon: response.data.weather[0].icon,
+      //icon: response.data.condition.icon,
       wind: response.data.wind.speed,
       //city: response.data.name,
       city: response.data.city,
-      icon_url: response.data.condition.icon_url
+      icon_url: response.data.condition.icon_url,
     });
    
   }
