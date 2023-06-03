@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 import axios from "axios";
 import "./Weather.css";
@@ -8,20 +9,33 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    console.log(response);
     setWeatherData({
       ready: true,
-      humidity: response.data.main.humidity,
-      temp: Math.round(response.data.main.temp),
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      //humidity: response.data.main.humidity,
+      humidity: response.data.temperature.humidity,
+      coordinates: response.data.coordinates,
+      //coordinates: response.data.coord,
+      // temp: Math.round(response.data.main.temp),
+      temperature: response.data.temperature.current,
+      //date: new Date(response.data.dt * 1000),
+      time: new Date(response.data.time),
+      //description: response.data.weather[0].description,
+      description: response.data.condition.description,
+      //icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
-      city: response.data.name,
+      //city: response.data.name,
+      city: response.data.city,
+      icon_url: response.data.condition.icon_url
     });
+   
   }
   function search() {
-    const apiKey = "2030de72409530d629eb62abf6b08948";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    //const apiKey = "2030de72409530d629eb62abf6b08948";
+    //const apiKey = "e30f73b3544toc0d6faf9afc4179ef7e";
+    const apiKey = "06fa5f0c173ae8o9ctd4134fb2530e34";
+    //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -60,6 +74,7 @@ export default function Weather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
