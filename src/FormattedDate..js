@@ -13,7 +13,7 @@ export default function FormattedDate(props) {
   ];
   let date=new Date(props.time);
   let day = days[props.time.getDay()];
-  console.log(props.date);
+ 
   let hours = props.time.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
