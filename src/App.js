@@ -42,7 +42,15 @@ export default function App() {
           >
             open-sourced on Github.
           </a>
-          
+          and
+          <a
+            href="https://symphonious-crumble-0267c8.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            hosted on Netlify
+          </a>
         </footer>
       </div>
     </div>
