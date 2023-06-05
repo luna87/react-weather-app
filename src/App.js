@@ -1,12 +1,36 @@
 import React from "react";
 import "./App.css";
 import Weather from "./Weather.js";
+import bg2 from "./Videos/bg2.mp4";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather defaultCity="tokyo" />
+        <video
+          className="bgVideo"
+          autoPlay
+          loop
+          muted
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            objectFit: "cover",
+            overflow: "hidden",
+            display: "flex",
+            fontFamily: "sans-serif",
+            zIndex: "-1",
+          }}
+        >
+          <source src={bg2} type="video/mp4" />
+        </video>
+        <h1 className="text-center">React Weather App</h1>
+
+        <Weather defaultCity="Tehran" />
 
         <footer>
           {" "}
@@ -17,6 +41,15 @@ export default function App() {
             rel="noopener noreferrer"
           >
             open-sourced on Github.
+          </a>
+          and
+          <a
+            href=""
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            hosted on Netlify
           </a>
         </footer>
       </div>
