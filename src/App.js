@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Weather from "./Weather.js";
 import bg2 from "./Videos/bg2.mp4";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 export default function App() {
   return (
@@ -42,15 +42,7 @@ export default function App() {
           >
             open-sourced on Github.
           </a>
-          and
-          <a
-            href=""
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            hosted on Netlify
-          </a>
+          
         </footer>
       </div>
     </div>
