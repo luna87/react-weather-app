@@ -9,9 +9,9 @@ export default function WeatherInfo(props) {
       <h1>{props.data.city}</h1>
       <ul>
         <li>
-          <FormattedDate time={props.data.time} />
-          
+          <FormattedDate time={props.data.Time} />
         </li>
+   
         <li className="text-capitalize">{props.data.description}</li>
       </ul>
       <div className="row mt-3">
